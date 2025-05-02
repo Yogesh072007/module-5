@@ -10,8 +10,23 @@ To write a C Program to find area of rectangle using pointer.
 5.	Stop the program.
 
 ## PROGRAM
+```
+#include <stdio.h>
+
+int main() {
+    int x, y, area;
+    int *ptr = &y;
+    scanf("%d %d", &x, &y);
+    area = x * (*ptr);
+    printf("Area of Rectangle = %d\n", area);
+    return 0;
+}
+```
 
 ## OUTPUT
+```
+Area of Rectangle = 20
+```
 		       	
 
 
@@ -34,9 +49,23 @@ To write a C Program to print 'WELCOME' using malloc() and free().
 6.	Stop the program.
 
 ## PROGRAM
+```
+#include <stdio.h>
+#include <stdlib.h>
+
+int main() {
+    char *str = (char *)malloc(10 * sizeof(char));
+    str = "WELCOME";
+    printf("%s\n", str);
+    free(str);
+    return 0;
+}
+```
 
 ## OUTPUT
-
+```
+WELCOME
+```
 
 
 ## RESULT
@@ -60,9 +89,30 @@ To write a C Program to store the student information and display it using struc
 4.	Stop the program.
 
 ## PROGRAM
+```
+#include <stdio.h>
+
+struct student {
+    char name[20];
+    int roll;
+    float marks;
+};
+
+int main() {
+    struct student s;
+    scanf("%s %d %f", s.name, &s.roll, &s.marks);
+    printf("Name: %s\n", s.name);
+    printf("Roll: %d\n", s.roll);
+    printf("Marks: %.2f\n", s.marks);
+    return 0;
+}
+```
 
 
 ## OUTPUT
+```
+John 101 85.5
+```
 
 
 ## RESULT
@@ -87,10 +137,47 @@ To write a C Program to read and store the data of 3 employees and calculate the
 5.	Stop the program.
 
 ## PROGRAM
+```
+#include <stdio.h>
+
+struct employee {
+    char name[20];
+    int id;
+    float basic, hra, da, gross;
+};
+
+int main() {
+    struct employee e[3];
+    for (int i = 0; i < 3; i++) {
+        scanf("%s %d %f %f %f", e[i].name, &e[i].id, &e[i].basic, &e[i].hra, &e[i].da);
+        e[i].gross = e[i].basic + e[i].hra + e[i].da;
+    }
+    for (int i = 0; i < 3; i++) {
+        printf("Employee %d:\n", i + 1);
+        printf("Name: %s\nID: %d\nGross Salary: %.2f\n", e[i].name, e[i].id, e[i].gross);
+    }
+    return 0;
+}
+```
 
 
  ## OUTPUT
+```
+Employee 1:  
+Name: Ram  
+ID: 101  
+Gross Salary: 13500.00
 
+Employee 2:  
+Name: Sam  
+ID: 102  
+Gross Salary: 16500.00
+
+Employee 3:  
+Name: Raj  
+ID: 103  
+Gross Salary: 14900.00
+```
  
 
 ## RESULT
@@ -134,9 +221,43 @@ Step 7: Output Loop (i = 0 to 1):
 Step 8: End the program.
 
 ## PROGRAM
+```
+#include <stdio.h>
+
+struct student {
+    int subject[5];
+    int total;
+};
+
+int main() {
+    struct student s[2];
+    for (int i = 0; i < 2; i++) {
+        for (int j = 0; j < 5; j++) {
+            scanf("%d", &s[i].subject[j]);
+        }
+    }
+
+    for (int i = 0; i < 2; i++) {
+        s[i].total = 0;
+        for (int j = 0; j < 5; j++) {
+            s[i].total += s[i].subject[j];
+        }
+    }
+
+    for (int i = 0; i < 2; i++) `{
+        float avg = s[i].total / 5.0;
+        printf("Student %d Total: %d, Average: %.2f\n", i + 1, s[i].total, avg);
+    }
+    return 0;
+}
+```
 
 
 ## OUTPUT
+```
+Student 1 Total: 400, Average: 80.00  
+Student 2 Total: 360, Average: 72.00
+```
 
  
 
